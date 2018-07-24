@@ -1,0 +1,228 @@
+{
+	"information_for_contributors": [
+		"This file has been converted from https://github.com/atom/language-php/blob/master/grammars/html.cson",
+		"If you want to provide a fix or improvement, please create a pull request against the original repository.",
+		"Once accepted there, we are happy to receive an update request."
+	],
+	"version": "https://github.com/atom/language-php/commit/72bfa9592e689fdcb70562ff7d882ad5308e79f7",
+	"name": "HTML (ASP)",
+	"scopeName": "text.html.asp",
+	"injections": {
+        "L:text.html.asp": {
+            "patterns": [
+                {
+                    "include": "#vbscript-tag"
+                }
+            ]
+        }
+	},
+	"patterns": [
+		{
+			"include": "text.html.basic"
+		}
+	],
+	"repository": {
+        "vbscript-tag": {
+            "patterns":[
+                {
+                    "begin": "(<%)(=|)",
+                    "beginCaptures": {
+                        "0": {
+                            "name": "support.class.asp.vbscript"
+                        }
+                    },
+                    "end": "(%>)",
+                    "endCaptures": {
+                        "0": {
+                            "name": "support.class.asp.vbscript"
+                        }
+                    },
+                    "content.name": "source.vbs",
+                    "patterns": [
+                        {
+                            "include": "source.vbs"
+                        }
+                    ]
+                },
+                {
+                    "begin": "(<)\\s*((?i:script))\\s+((?i:language|))(=|)((?i:('|\"|)vbscript('|\"|)|))\\s*((?i:runat))(=)((?i:('|\"|)server('|\"|)))\\s*(>)",
+                    "beginCaptures": {
+                        "1": {
+                            "name":"punctuation.definition.tag"
+                        },
+                        "2": {
+                            "name": "entity.name.tag"
+                        },
+                        "3": {
+                            "name": "entity.other.attribute-name.language"
+                        },
+                        "4": {
+                            "name": "punctuation.definition.tag"
+                        },
+                        "5": {
+                            "name": "support.class.asp.vbscript"
+                        },
+                        "6": {
+                            "name":"punctuation.definition.tag"
+                        },
+                        "7": {
+                            "name": "punctuation.definition.tag"
+                        },
+                        "8": {
+                            "name": "entity.other.attribute-name.runat"
+                        },
+                        "9": {
+                            "name": "punctuation.definition.tag"
+                        },
+                        "10": {
+                            "name": "support.class.asp.server"
+                        },
+                        "11": {
+                            "name": "punctuation.definition.tag"
+                        },
+                        "12": {
+                            "name": "punctuation.definition.tag"
+                        },
+                        "13": {
+                            "name": "punctuation.definition.tag"
+                        }
+                    },
+                    "end": "(</)\\s*((?i:script))\\s*(>)",
+                    "endCaptures": {
+                        "1": {
+                            "name": "punctuation.definition.tag"
+                        },
+                        "2":{
+                            "name": "entity.name.tag"   
+                        },
+                        "3": {
+                            "name": "punctuation.definition.tag"
+                        }
+                    },
+                    "content.name": "source.vbs",
+                    "patterns": [
+                        {
+                            "include": "source.vbs"
+                        }
+                    ]
+                },
+                {
+                    
+                    "begin": "(<)\\s*((?i:script))\\s+((?i:language|))(=|)((?i:('|\"|)(javascript|jscript)('|\"|)|))\\s*((?i:runat))(=)((?i:('|\"|)server('|\"|)))\\s*(>)",
+                    "beginCaptures": {
+                        "1": {
+                            "name":"punctuation.definition.tag"
+                        },
+                        "2": {
+                            "name": "entity.name.tag"
+                        },
+                        "3": {
+                            "name": "entity.other.attribute-name.language"
+                        },
+                        "4": {
+                            "name": "punctuation.definition.tag"
+                        },
+                        "5": {
+                            "name": "support.class.asp.vbscript"
+                        },
+                        "6": {
+                            "name":"punctuation.definition.tag"
+                        },
+
+                        "8": {
+                            "name": "punctuation.definition.tag"
+                        },
+                        "9": {
+                            "name": "entity.other.attribute-name.runat"
+                        },
+                        "10": {
+                            "name": "punctuation.definition.tag"
+                        },
+                        "11": {
+                            "name": "support.class.asp.server"
+                        },
+                        "12": {
+                            "name": "punctuation.definition.tag"
+                        },
+                        "13": {
+                            "name": "punctuation.definition.tag"
+                        },
+                        "14": {
+                            "name": "punctuation.definition.tag"
+                        }
+                    },
+                    "end": "(</)\\s*((?i:script))\\s*(>)",
+                    "endCaptures": {
+                        "1": {
+                            "name": "punctuation.definition.tag"
+                        },
+                        "2":{
+                            "name": "entity.name.tag"   
+                        },
+                        "3": {
+                            "name": "punctuation.definition.tag"
+                        }
+                    },
+                    "content.name": "source.js",
+                    "patterns": [
+                        {
+                            "include": "source.js"
+                        }
+                    ]
+                }
+            ]
+        },
+		"php-tag": {
+			"patterns": [
+				{
+					"begin": "<\\?(?i:php|=)?(?![^?]*\\?>)",
+					"beginCaptures": {
+						"0": {
+							"name": "punctuation.section.embedded.begin.php"
+						}
+					},
+					"end": "(\\?)>",
+					"endCaptures": {
+						"0": {
+							"name": "punctuation.section.embedded.end.php"
+						},
+						"1": {
+							"name": "source.php"
+						}
+					},
+					"name": "meta.embedded.block.php",
+					"contentName": "source.php",
+					"patterns": [
+						{
+							"include": "source.php"
+						}
+					]
+				},
+				{
+					"begin": "<\\?(?i:php|=)?",
+					"beginCaptures": {
+						"0": {
+							"name": "punctuation.section.embedded.begin.php"
+						}
+					},
+					"end": "(\\?)>",
+					"endCaptures": {
+						"0": {
+							"name": "punctuation.section.embedded.end.php"
+						},
+						"1": {
+							"name": "source.php"
+						}
+					},
+					"name": "meta.embedded.line.php",
+					"contentName": "source.php",
+					"patterns": [
+						{
+							"include": "source.php"
+						}
+					]
+				}
+			]
+		}
+	}
+}

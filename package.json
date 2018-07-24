@@ -1,0 +1,44 @@
+{
+    "name": "vs-asp-classic",
+    "displayName": "ASP Classic",
+    "description": "ASP Classic language support (VBScript + JScript)",
+    "version": "0.0.1",
+    "publisher": "wferris",
+    "repository": {
+	"type": "git",
+	"url": "git@github.com/wferris722/vs-asp-classic.git"
+    },
+    "engines": {
+        "vscode": "^1.25.0"
+    },
+    "categories": [
+        "Programming Languages"
+    ],
+    "contributes": {
+        "languages": [
+            {
+				"id": "asp",
+            "aliases": ["ASP Classic", "asp"],
+            "extensions": [".asp", ".inc"],
+            "configuration": "./language-configuration.json"
+        }],
+        "grammars": [
+            {
+                "language": "asp",
+                "scopeName": "source.vbs",
+                "path": "./syntaxes/vbscript.tmLanguage.json"
+            },
+            {
+                "language": "asp",
+                "scopeName": "text.html.asp",
+                "path": "./syntaxes/html.asp.tmLanguage.json",
+                "embeddedLanguages": {
+                    "source.vbs": "asp",
+                    "source.js": "javascript",
+                    "text.html": "html",
+                    "source.json": "json",
+                    "source.css": "css"
+            }
+        }]
+    }
+}
