@@ -36,6 +36,14 @@
             }
         },
         {
+            "name":"keyword.control.asp",
+            "match":"\\s*(?i:\\b(If|Then|Else|ElseIf|Else If|End If|While|Wend|For|To|Each|In|Step|Case|Select|End Select|Return|Continue|Do|Until|Loop|Next|With|End With|Exit Do|Exit For|Exit Function|Exit Property|Exit Sub|IIf)\\b)"
+        },
+        {
+            "name":"keyword.operator.logical.asp",
+            "match":"(?i:\\b(Mod|And|Not|Is|Or|Xor|as)\\b)"
+        },
+        {
             "begin": "(?i:(?<=private|public|dim))\\s*([a-zA-Z_]\\w*)\\s*(\\(\\s*\\)|)\\s*(,\\s*(?=[a-zA-Z_])|\\s*$)",
             "_comment": "Class properties",
             "beginCaptures": {
@@ -236,14 +244,6 @@
             "endCaptures": {
                 
             }
-        },
-        {
-            "name":"keyword.control.asp",
-            "match":"(?i:\\b(If|Then|Else|ElseIf|Else If|End If|While|Wend|For|To|Each|In|Step|Case|Select|End Select|Return|Continue|Do|Until|Loop|Next|With|End With|Exit Do|Exit For|Exit Function|Exit Property|Exit Sub|IIf)\\b)"
-        },
-        {
-            "name":"keyword.operator.logical.asp",
-            "match":"(?i:\\b(Mod|And|Not|Is|Or|Xor|as)\\b)"
         },
         {
             "begin": "((?i:Class))\\s+(\\S+)\\s*",
