@@ -36,6 +36,20 @@
             }
         },
         {
+            "begin": "(?i:(?<=private|public|dim))\\s*([a-zA-Z_]\\w*)\\s*(\\(\\s*\\)|)\\s*(,\\s*(?=[a-zA-Z_])|\\s*$)",
+            "_comment": "Class properties",
+            "beginCaptures": {
+                "1": {
+                    "name": "variable.other.asp"
+                },
+                "2": {
+                    "name": "punctuation.section.round-brackets"
+                }
+            },
+            "end":"\\G",
+            "endCaptures": {}
+        },
+        {
             "name": "meta.function.asp",
             "begin":"^\\s*((?i:(?:public|private|default)\\s+|))\\s*((?i:(?:sub|function|property\\s+(?:let|set|get))))\\s+([a-zA-Z_]\\w*)\\s*(\\()([^)]*)(\\)).*\\n?",
             "beginCaptures":{
@@ -64,7 +78,19 @@
             }
         },
         {
+            "begin": "^\\s*([a-zA-Z_]\\w*)\\s*$",
+            "_comment": "Bare sub call",
+            "beginCaptures": {
+                "1": {
+                    "name": "entity.name.function.asp"
+                }
+            },
+            "end":"\\G",
+            "endCaptures": {}
+        },
+        {
             "begin":"^\\s*((?i:class))\\s+([a-zA-Z_]\\w*)\\s*$",
+            "_comment": "Class declaration",
             "beginCaptures": {
                 "1": {
                     "name": "storage.type.class.asp"
@@ -77,19 +103,68 @@
             "endCaptures": {}
         },
         {
-            "begin":"\\b([a-zA-Z_]\\w*)((?:(?:\\.)(?:[a-zA-Z_]\\w*)\\b)+)",
+            "begin":"\\b([a-zA-Z_]\\w*)\\s*(?=(\\.)([a-zA-Z_]\\w*)\\b)",
+            "_comment": "Captures Class.Something",
             "beginCaptures":{
                 "1":{
-                    "name": "entity.name.class.asp"
-                },
-                "2": {
-                    "name": "keyword"
+                    "name": "variable.other.object.asp"
                 }
             },
             "end":"\\G",
-            "endCaptures": {
-                
-            }
+            "endCaptures": {}
+        },
+        {
+            "begin": "(?i:(?<=new))\\s*([a-zA-Z_]\\w*)\\s*$",
+            "_comment": "Captures new Class",
+            "beginCaptures": {
+                "1":{
+                    "name": "entity.name.class.asp"
+                }
+            },
+            "end": "\\G",
+            "endCaptures": {}
+        },
+        {
+            "begin":"\\s*(\\.)([a-zA-Z_]\\w*)\\s*(?=((\\.)([a-zA-Z_]))|(?:=)|(?:\\s*$))",
+            "_comment": "Property access",
+            "beginCaptures": {
+                "1": {
+                    "name": "punctuation.accessor"
+                },
+                "2": {
+                    "name": "variable.other.object.property"
+                }
+            },
+            "end":"\\G",
+            "endCaptures": {}
+        },
+        {
+            "begin": "\\s*(\\.)([a-zA-Z_]\\w*)\\s*(\\()\\s*((?:[^,]+(?:,\\s*|\\s*))+)\\s*(\\))\\s*$",
+            "_comment": "Function Methods",
+            "beginCaptures": {
+                "1":{
+                    "name": "punctuation.accessor"
+                },
+                "2":{
+                    "name": "entity.name.function.asp"
+                }
+            },
+            "end": "\\G",
+            "endCaptures": {}
+        },
+        {
+            "begin": "\\s*(\\.)([a-zA-Z_]\\w*)\\s*((?:[^,]+(?:,\\s*|\\s*))+)\\s*$",
+            "_comment": "Sub Methods",
+            "beginCaptures":{
+                "1":{
+                    "name": "punctuation.accessor"
+                },
+                "2":{
+                    "name": "entity.name.function.sub.asp"
+                }
+            },
+            "end":"\\G",
+            "endCaptures": {}
         },
         {
             "name":"meta.ending-space",
