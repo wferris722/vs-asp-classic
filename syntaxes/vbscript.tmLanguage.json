@@ -122,7 +122,7 @@
             "endCaptures": {}
         },
         {
-            "begin": "(?i:(?<=new))\\s*([a-zA-Z_]\\w*)\\s*$",
+            "begin": "(?i:(?<=new\\s))\\s*([a-zA-Z_]\\w*)\\s*$",
             "_comment": "Captures new Class",
             "beginCaptures": {
                 "1":{
