@@ -147,7 +147,7 @@
             "endCaptures": {}
         },
         {
-            "begin": "\\s*(\\.)([a-zA-Z_]\\w*)\\s*(\\()\\s*((?:[^,]+(?:,\\s*|\\s*))+)\\s*(\\))\\s*$",
+            "begin": "\\s*(\\.)([a-zA-Z_]\\w*)\\s*(?=\\(|\\s*[^=])",
             "_comment": "Function Methods",
             "beginCaptures": {
                 "1":{
@@ -158,20 +158,6 @@
                 }
             },
             "end": "\\G",
-            "endCaptures": {}
-        },
-        {
-            "begin": "\\s*(\\.)([a-zA-Z_]\\w*)\\s*((?:[^,]+(?:,\\s*|\\s*))+)\\s*$",
-            "_comment": "Sub Methods",
-            "beginCaptures":{
-                "1":{
-                    "name": "punctuation.accessor"
-                },
-                "2":{
-                    "name": "entity.name.function.sub.asp"
-                }
-            },
-            "end":"\\G",
             "endCaptures": {}
         },
         {
