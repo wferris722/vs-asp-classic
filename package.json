@@ -2,7 +2,7 @@
     "name": "vs-asp-classic",
     "displayName": "ASP Classic",
     "description": "ASP Classic language support (VBScript + JScript)",
-    "version": "0.0.3",
+    "version": "0.0.4",
     "publisher": "wferris",
     "repository": {
 	"type": "git",

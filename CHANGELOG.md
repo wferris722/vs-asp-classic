@@ -12,3 +12,6 @@ All notable changes to the "vs-asp-classic" extension will be documented in this
 - Fixed performance problems with class method calls regex
 - Added support for exit (function|sub|etc)
 - Added support for labels
+
+## [v0.0.4]
+- Changed README.md to fix issue with display in VSCode's extension details
